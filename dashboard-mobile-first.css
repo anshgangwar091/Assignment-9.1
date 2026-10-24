@@ -1,0 +1,247 @@
+/* dashboard-mobile-first.css — Assignment 9.1 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #2d3748;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. Mobile-First Base Styles (Phones: Width < 768px)
+   ========================================================================== */
+.dashboard-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.dash-header {
+    background-color: #1a365d;
+    color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.logo .highlight {
+    color: #3182ce;
+}
+
+.user-profile {
+    font-size: 0.9rem;
+}
+
+/* Sidebar stacks horizontally on mobile */
+.dash-sidebar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 10px 20px;
+}
+
+.dash-sidebar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Prevents overflow if links are long */
+    padding-bottom: 5px;
+}
+
+.dash-sidebar a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.dash-sidebar a.active,
+.dash-sidebar a:hover {
+    background-color: #ebf8ff;
+    color: #3182ce;
+}
+
+.dash-main {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.content-header {
+    margin-bottom: 20px;
+}
+
+.content-header h2 {
+    font-size: 1.4rem;
+    color: #1a365d;
+}
+
+.content-header p {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* Stats Cards: Single column by default on mobile */
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.stat-card h3 {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a365d;
+    margin: 5px 0;
+}
+
+.trend {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.trend.positive { color: #38a169; }
+.trend.neutral { color: #3182ce; }
+
+/* Activity Table */
+.activity-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.activity-section h3 {
+    font-size: 1.1rem;
+    color: #1a365d;
+    margin-bottom: 15px;
+}
+
+.table-container {
+    overflow-x: auto; /* Prevent table overflow on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #f7fafc;
+    color: #4a5568;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.badge.success { background-color: #c6f6d5; color: #22543d; }
+.badge.warning { background-color: #feebc8; color: #744210; }
+
+
+/* ==========================================================================
+   4 & 5. Breakpoint 1: Tablet Layout (`min-width: 768px`)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .dash-main {
+        padding: 30px;
+    }
+
+    /* Switch stats cards to a 2-column grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+
+/* ==========================================================================
+   4 & 5. Breakpoint 2: Desktop Layout (`min-width: 1024px`)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    /* Convert outer layout into a 2-column Grid (Sidebar + Main) */
+    .dashboard-page {
+        display: grid;
+        grid-template-areas: 
+            "header header"
+            "sidebar main";
+        grid-template-columns: 260px 1fr;
+        grid-template-rows: 70px 1fr;
+    }
+
+    .dash-header {
+        grid-area: header;
+        padding: 0 30px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    /* Transform sidebar back to a vertical panel */
+    .dash-sidebar {
+        grid-area: sidebar;
+        border-bottom: none;
+        border-right: 1px solid #e2e8f0;
+        padding: 30px 20px;
+    }
+
+    .dash-sidebar ul {
+        flex-direction: column;
+        gap: 10px;
+        overflow-x: visible;
+    }
+
+    .dash-sidebar a {
+        display: block;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .dash-main {
+        grid-area: main;
+        padding: 30px;
+    }
+
+    /* Expand stats cards to 3 columns */
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

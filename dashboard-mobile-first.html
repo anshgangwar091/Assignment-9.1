@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 2. Verify Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-First Responsive Dashboard</title>
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="dashboard-mobile-first.css">
+</head>
+<body>
+
+    <!-- Outer Mobile-First Layout Wrapper -->
+    <div class="dashboard-page">
+
+        <!-- 1. Header Section -->
+        <header class="dash-header">
+            <div class="logo">Dev<span class="highlight">Pulse</span> Mobile-First</div>
+            <div class="user-profile">
+                <span>Alex Turner</span>
+            </div>
+        </header>
+
+        <!-- 1. Navigation Sidebar / Mobile Nav -->
+        <aside class="dash-sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 1 & 3. Main Content Area -->
+        <main class="dash-main">
+            <div class="content-header">
+                <h2>Performance Overview</h2>
+                <p>Mobile-first responsive dashboard layout.</p>
+            </div>
+
+            <!-- 3 Statistic Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <p class="stat-number">12,480</p>
+                    <span class="trend positive">+12% this month</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Projects</h3>
+                    <p class="stat-number">34</p>
+                    <span class="trend positive">+4 new</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Monthly Revenue</h3>
+                    <p class="stat-number">$48,250</p>
+                    <span class="trend positive">+8% growth</span>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <section class="activity-section">
+                <h3>Recent Activity Feed</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sarah J.</td>
+                                <td>Deployed update</td>
+                                <td><span class="badge success">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>Marcus C.</td>
+                                <td>Created repo</td>
+                                <td><span class="badge success">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>Elena R.</td>
+                                <td>Security audit</td>
+                                <td><span class="badge warning">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>
